@@ -25,7 +25,7 @@ jobs:
           ssh-keyscan -H 150.230.251.87 >> ~/.ssh/known_hosts
 
       - name: Clone Backend Repository (SSH)
-        run: |git 
+        run: |
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/id_rsa
           git clone git@github.com:CUKLLteam3/Backend.git
