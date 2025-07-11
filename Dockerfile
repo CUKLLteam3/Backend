@@ -1,5 +1,6 @@
 # 1단계: 빌드 스테이지
-FROM openjdk:21-jre-slim AS build
+#FROM openjdk:21-jre-slim AS build
+FROM openjdk:21-slim AS build
 
 WORKDIR /app
 
