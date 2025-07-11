@@ -7,12 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class MainController {
+    @GetMapping("/test")
+    public String home() {
+        return "Hello, CI/CD!";
 
-    public class HelloController {
-        @GetMapping("/")
-        public String home() {
-            return "Hello, CI/CD!";
-        }
     }
 
 }
