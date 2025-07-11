@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
     @GetMapping("/test")
     public String home() {
-        return "Hello, CI/CD!";
+        return "Hello, CI/CD! Welcome to CUKLLteam3!";
 
     }
 
