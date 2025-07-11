@@ -1,27 +1,28 @@
-# 베이스 이미지로 OpenJDK 사용
+# 1단계: 빌드 스테이지
 FROM openjdk:21-jdk-slim AS build
 
-# 작업 디렉토리 생성
 WORKDIR /app
 
-# Gradle Wrapper와 필요한 설정 파일 복사
-COPY gradlew gradlew
-COPY gradle gradle
+#  의존성 관련 파일 먼저 복사 (변경 안 되면 캐시 그대로 유지)
 COPY build.gradle build.gradle
 COPY settings.gradle settings.gradle
+COPY gradlew gradlew
+COPY gradle gradle
+
+#  의존성만 먼저 다운로드
+RUN chmod +x ./gradlew && ./gradlew dependencies
+
+# 👉이후 소스 복사 (변경 자주 발생)
 COPY src src
 
-# Gradle을 사용하여 애플리케이션 빌드
-RUN chmod +x ./gradlew && ./gradlew build -x test
+# 👉애플리케이션 빌드
+RUN ./gradlew build -x test
 
-# 실행 환경 설정
+# 2단계: 실행 스테이지
 FROM openjdk:21-jdk-slim
 
-# 작업 디렉토리 설정
 WORKDIR /app
-
-# 빌드한 JAR 파일 복사
 COPY --from=build /app/build/libs/*.jar app.jar
 
-# 애플리케이션 실행
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
