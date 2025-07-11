@@ -28,6 +28,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/spring-app:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: SSH into Oracle and deploy Docker container
         uses: appleboy/ssh-action@v0.1.10
