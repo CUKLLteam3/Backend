@@ -1,0 +1,10 @@
+openai:
+  api-key: ${OPENAI_API_KEY}
+
+kakao:
+  api:
+    key: ${KAKAO_API_KEY}
+
+airkorea:
+  api:
+    key: ${AIRKOREA_API_KEY}
