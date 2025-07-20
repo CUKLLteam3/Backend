@@ -15,5 +15,4 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedMethods("*");// GET, POST, PUT, DELETE 등 모든 HTTP 메서드 허용
         //.allowCredentials(true); // 인증 정보(쿠키 등) 포함 허용
     }
-
 }
