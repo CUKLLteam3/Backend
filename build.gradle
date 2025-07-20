@@ -43,3 +43,7 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+// ✅ JAR 파일명을 고정해서 Dockerfile에서 안정적으로 사용 가능
+bootJar {
+    archiveFileName = 'app.jar'
+}
