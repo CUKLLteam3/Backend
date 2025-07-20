@@ -1,3 +1,12 @@
+server:
+  port: 443
+  ssl:
+    enabled: true
+    key-store: classpath:mycert.p12
+    key-store-password: CUKLLteam3
+    key-store-type: PKCS12
+    key-alias: cukllteam3
+
 openai:
   api-key: ${OPENAI_API_KEY}
 
