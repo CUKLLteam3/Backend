@@ -7,6 +7,7 @@ server:
     key-store-type: PKCS12
     key-alias: cukllteam3
 
+
 openai:
   api-key: ${OPENAI_API_KEY}
 
@@ -17,3 +18,4 @@ kakao:
 airkorea:
   api:
     key: ${AIRKOREA_API_KEY}
+
